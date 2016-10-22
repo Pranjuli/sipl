@@ -1,61 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <meta charset="utf-8">
   <title>Speaking Images</title>
-  <link href="images/SI_logo.png" rel="shortcut icon" type="image/x-icon" />
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/bootstrap.min.css" media="screen" rel="stylesheet" title="no title" />
-  <link href="css/master.css" media="screen" rel="stylesheet" title="no title" />
-  <link href="css/animate.css" media="screen" rel="stylesheet" title="no title" />
-  <link href="css/bootstrap-select.min.css" media="screen" rel="stylesheet" title="no title" />
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/bootstrap.min.css"  media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8">
   <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/angular.min.js"></script>
-  <script type="text/javascript" src="js/master.js"></script>
-  <script type="text/javascript" src="js/angular-route.min.js"></script>
+  <script type="text/javascript" src="controllers/profileController.js"></script>
+  <script type="text/javascript" src="js/angular-animate.js"></script>
 </head>
-<body data-offset="50" data-spy="scroll" data-target=".navbar" id="about">
-  <div class="container-fluidl title-logo" id="start-offset">
-    <div class="container">
-      <img alt="speakingimages" class="animated bounceInDown img-responsive" height="200%" src="images/SI_name.png" width="auto" />
-      <h2 class="animated fadeIn col-md-7" style="padding-left: 90px; color:black">&quot;<span style="font-family:comic sans ms,cursive;">Images Speak Louder Than Words</span>&quot;</h2>
-      <span class="animated fadeInDownBig col-md-2 glyphicon glyphicon-earphone" style="color:black"> +91 8930561803</span> <span class="animated fadeInDownBig col-md-3 glyphicon glyphicon-envelope" style="color:black"> info@speakingimages.in</span></div>
-    </div>
-    <div class="container">
-      <div class="row" id="pwd-container">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-          <section class="login-form">
-            <form method="post" action="#" role="login">
-              <h2 class="text-center">Login</h2>
-              <input type="username" name="username" placeholder="Username" required class="form-control input-lg" value="" />
-              <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
-              <div class="pwstrength_viewport_progress"></div>
-              <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
-            </form>
-            <div class="form-links">
-              <a href="#">http://www.speakingimages.in</a>
-            </div>
-          </section>
-        </div>
-        <div class="col-md-4"></div>
-      </div>
-      <p>
-        <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fbootsnipp.com%2Fiframe%2FW00op" target="_blank"><small>HTML</small><sup>5</sup></a>
+<body>
+  <div class="jumbotron text-center">
+    <h1>Speaking Images</h1>
+    <p>
+      Images Speaks Lauder Than Words !
+    </p>
+  </div>
+  <div class="container">
+      <form class="form-signin" action="home.htm">
+        <label for="inputEmail" class="sr-only">Email Address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email Address" required autofocus>
         <br>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <br>
-      </p>
-    </div>
-    <footer class="container-fluid alert alert-info text-center">
-      <a href="#home" title="To Top">
-        <span class="glyphicon glyphicon-chevron-up"></span>
-      </a>
-      <p>
-        <span class="glyphicon glyphicon-copyright-mark"></span> Speaking Images private Limited
-      </p>
-    </footer>
-  </body>
-  </html>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <br>
+      </form>
+  </div>
+</body>
+</html>

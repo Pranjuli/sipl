@@ -3,6 +3,16 @@
 over-ride "Weak" message, show font in dark grey
 */
 
+.form-signin {
+
+  max-width: 330px;
+
+  padding: 15px;
+
+  margin: 0 auto;
+
+}
+
 .progress-bar {
     color: #333;
 }
