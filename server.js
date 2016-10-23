@@ -117,7 +117,7 @@ var SampleApp = function() {
             from: req.body.email,
             to: 'imagesspeaking@gmail.com',
             subject: 'Message is from '+req.body.name,
-            text: message;
+            text: message
           };
 
           transporter.sendMail(mailOptions, function(error, info) {
