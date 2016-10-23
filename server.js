@@ -122,12 +122,20 @@ var SampleApp = function() {
         self.app = app;
         self.app.use(express.static(__dirname));
 
+        self.app.use(function(req, res, next) {
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+            res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            next();
+        });
+
         self.app.post('/sendMail', self.routes['/sendMail']);
 
         //  Add handlers for the app (from the routes).
-        for (var r in self.routes) {
+        /*for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
-        }
+        }*/
     };
 
 
