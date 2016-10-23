@@ -3,6 +3,7 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
+var bodyParser = require('body-parser');
 
 
 /**
@@ -99,6 +100,7 @@ var SampleApp = function() {
         self.routes['/sendMail'] = function(req, res) {
           console.log("Sending mail....");
           console.log(req.body);
+          res.json(req.body);
         }
 
         self.routes['/asciimo'] = function(req, res) {
@@ -130,12 +132,14 @@ var SampleApp = function() {
             next();
         });
 
-        self.app.post('/sendMail', self.routes['/sendMail']);
+        self.app.use(bodyParser.json());
 
         //  Add handlers for the app (from the routes).
-        /*for (var r in self.routes) {
+        for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
-        }*/
+        }
+
+        self.app.post('/sendMail', self.routes['/sendMail']);
     };
 
 
