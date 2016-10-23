@@ -2,7 +2,7 @@
 //  OpenShift sample Node application
 var express = require('express');
 var app = express();
-var fs      = require('fs');
+var fs = require('fs');
 
 
 /**
@@ -94,7 +94,12 @@ var SampleApp = function() {
      *  Create the routing table entries + handlers for the application.
      */
     self.createRoutes = function() {
-        self.routes = { };
+        self.routes = {};
+
+        self.routes['/sendMail'] = function(req, res) {
+          console.log("Sending mail....");
+          console.log(req.body);
+        }
 
         self.routes['/asciimo'] = function(req, res) {
             var link = "http://i.imgur.com/kmbjB.png";
@@ -107,7 +112,6 @@ var SampleApp = function() {
         };
     };
 
-
     /**
      *  Initialize the server (express) and create the routes and register
      *  the handlers.
@@ -117,6 +121,8 @@ var SampleApp = function() {
         //self.app = express.createServer();
         self.app = app;
         self.app.use(express.static(__dirname));
+
+        self.app.post('/sendMail', self.routes['/sendMail']);
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
