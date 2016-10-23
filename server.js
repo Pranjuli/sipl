@@ -104,7 +104,7 @@ var SampleApp = function() {
           console.log(req.body.email);
           console.log(req.body.phonenumber);
           console.log(req.body.message);
-          var message = "Name: "+req.body.name+", Phone Number: "+req.body.phonenumber+", Message: "+req.body.message;
+          var message = "Name: "+req.body.name+", Email: "+req.body.email+", Phone Number: "+req.body.phonenumber+", Message: "+req.body.message;
           var transporter = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
