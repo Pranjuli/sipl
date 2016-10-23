@@ -4,6 +4,7 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser');
+var nodemailer = require('nodemailer');
 
 
 /**
@@ -100,8 +101,31 @@ var SampleApp = function() {
         self.routes['/sendMail'] = function(req, res) {
           console.log("Sending mail....");
           console.log(req.body);
-          res.json(req.body);
-        }
+          var transporter = nodemailer.createTransport({
+            service: 'Gmail',
+            auth: {
+              user: 'imagesspeaking@gmail.com',
+              pass: 'Vaibhav@123'
+            }
+          });
+
+          var mailOptions = {
+            from: req.body.email,
+            to: 'imagesspeaking@gmail.com',
+            subject: 'Message is from '+req.body.name,
+            text: req.body
+          };
+
+          transporter.sendMail(mailOptions, function(error, info) {
+            if(error) {
+              console.error(error);
+              res.json({status: 'error'});
+            } else {
+              console.log('Message sent: '+info.response);
+              res.json({status: info.response});
+            }
+          });
+        };
 
         self.routes['/asciimo'] = function(req, res) {
             var link = "http://i.imgur.com/kmbjB.png";
