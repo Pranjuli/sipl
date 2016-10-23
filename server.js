@@ -100,7 +100,11 @@ var SampleApp = function() {
 
         self.routes['/sendMail'] = function(req, res) {
           console.log("Sending mail....");
-          console.log(req.body);
+          console.log(req.body.name);
+          console.log(req.body.email);
+          console.log(req.body.phonenumber);
+          console.log(req.body.message);
+          var message = "Name: "+req.body.name+", Phone Number: "+req.body.phonenumber+", Message: "+req.body.message;
           var transporter = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
@@ -113,7 +117,7 @@ var SampleApp = function() {
             from: req.body.email,
             to: 'imagesspeaking@gmail.com',
             subject: 'Message is from '+req.body.name,
-            text: req.body
+            text: message;
           };
 
           transporter.sendMail(mailOptions, function(error, info) {
