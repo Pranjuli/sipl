@@ -10,7 +10,7 @@ var nodemailer = require('nodemailer');
 /**
  *  Define the sample application.
  */
-var SampleApp = function() {
+var SiplApp = function() {
 
     //  Scope.
     var self = this;
@@ -202,6 +202,6 @@ var SampleApp = function() {
 /**
  *  main():  Main code.
  */
-var zapp = new SampleApp();
+var zapp = new SiplApp();
 zapp.initialize();
 zapp.start();
