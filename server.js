@@ -108,8 +108,8 @@ var SiplApp = function() {
           var transporter = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
-              user: 'imagesspeaking@gmail.com',
-              pass: 'Vaibhav@123'
+              user: process.env.SMTP_USERNAME,
+              pass: process.env.SMTP_PASSWORD
             }
           });
 
